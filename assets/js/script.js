@@ -32,10 +32,10 @@ printOnScreen();
 
 function printOnScreen() {
   let localName = localStorage.getItem('personName');
-  if (localName === null) {
-    h2.innerText = 'No Data';
-  } else {
+  if (localName) {
     h2.innerText = `Ciao! ${localName}`;
+  } else {
+    h2.innerText = 'No Data';
   }
 }
 
