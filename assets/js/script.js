@@ -5,23 +5,6 @@ const removeDataBtn = document.getElementById('removeData');
 const list = document.getElementById('addName');
 const newh4 = document.createElement('h4');
 
-document.addEventListener('load', init());
-
-function init() {
-  //esercizio 1
-  const valore = localStorage.getItem('personName');
-  if (valore === null) {
-    newh4.innerText = 'No Data';
-  } else {
-    newh4.innerText = `Ciao! ${valore}`;
-  }
-
-  list.appendChild(newh4);
-
-  //esercizio 2
-  counter();
-}
-
 addDataBtn.addEventListener('click', function (e) {
   e.preventDefault();
 
@@ -32,20 +15,18 @@ addDataBtn.addEventListener('click', function (e) {
   }
   let nome = personName.value;
   localStorageSave(nome);
-  init();
+  printOnScreen();
 });
 
 function localStorageSave(nome) {
   localStorage.setItem('personName', nome);
-
-  let localName = localStorage.getItem('personName');
 
   document.getElementById('savePerson').reset();
 }
 
 removeDataBtn.addEventListener('click', function (e) {
   localStorage.clear();
-  init();
+  printOnScreen();
 });
 
 // ESERCIZIO 2
@@ -62,3 +43,17 @@ function counter() {
 }
 
 setInterval(counter, 1000);
+
+counter();
+printOnScreen();
+
+function printOnScreen() {
+  let localName = localStorage.getItem('personName');
+  if (localName === null) {
+    newh4.innerText = 'No Data';
+  } else {
+    newh4.innerText = `Ciao! ${localName}`;
+  }
+
+  list.appendChild(newh4);
+}
