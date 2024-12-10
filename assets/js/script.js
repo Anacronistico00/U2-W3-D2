@@ -29,8 +29,20 @@ removeDataBtn.addEventListener('click', function (e) {
   printOnScreen();
 });
 
-// ESERCIZIO 2
+printOnScreen();
 
+function printOnScreen() {
+  let localName = localStorage.getItem('personName');
+  if (localName === null) {
+    newh4.innerText = 'No Data';
+  } else {
+    newh4.innerText = `Ciao! ${localName}`;
+  }
+
+  list.appendChild(newh4);
+}
+
+// ESERCIZIO 2
 function counter() {
   const counterTimer = document.getElementById('counterTimer');
   let counter = sessionStorage.getItem('counter') || 0;
@@ -45,15 +57,3 @@ function counter() {
 setInterval(counter, 1000);
 
 counter();
-printOnScreen();
-
-function printOnScreen() {
-  let localName = localStorage.getItem('personName');
-  if (localName === null) {
-    newh4.innerText = 'No Data';
-  } else {
-    newh4.innerText = `Ciao! ${localName}`;
-  }
-
-  list.appendChild(newh4);
-}
