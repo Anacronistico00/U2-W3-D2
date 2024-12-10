@@ -2,8 +2,7 @@
 const personName = document.getElementById('personName');
 const addDataBtn = document.getElementById('addData');
 const removeDataBtn = document.getElementById('removeData');
-const list = document.getElementById('addName');
-const newh4 = document.createElement('h4');
+const h4 = document.getElementById('addName');
 
 addDataBtn.addEventListener('click', function (e) {
   e.preventDefault();
@@ -34,15 +33,14 @@ printOnScreen();
 function printOnScreen() {
   let localName = localStorage.getItem('personName');
   if (localName === null) {
-    newh4.innerText = 'No Data';
+    h4.innerText = 'No Data';
   } else {
-    newh4.innerText = `Ciao! ${localName}`;
+    h4.innerText = `Ciao! ${localName}`;
   }
-
-  list.appendChild(newh4);
 }
 
 // ESERCIZIO 2
+
 function counter() {
   const counterTimer = document.getElementById('counterTimer');
   let counter = sessionStorage.getItem('counter') || 0;
