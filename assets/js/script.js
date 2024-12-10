@@ -8,7 +8,8 @@ const newh4 = document.createElement('h4');
 document.addEventListener('load', init());
 
 function init() {
-  const valore = JSON.parse(localStorage.getItem('personName'));
+  //esercizio 1
+  const valore = localStorage.getItem('personName');
   if (valore === null) {
     newh4.innerText = 'No Data';
   } else {
@@ -16,6 +17,9 @@ function init() {
   }
 
   list.appendChild(newh4);
+
+  //esercizio 2
+  counter();
 }
 
 addDataBtn.addEventListener('click', function (e) {
@@ -32,7 +36,7 @@ addDataBtn.addEventListener('click', function (e) {
 });
 
 function localStorageSave(nome) {
-  localStorage.setItem('personName', JSON.stringify(nome));
+  localStorage.setItem('personName', nome);
 
   let localName = localStorage.getItem('personName');
 
@@ -45,4 +49,16 @@ removeDataBtn.addEventListener('click', function (e) {
 });
 
 // ESERCIZIO 2
-const counterDiv = document.getElementById('counterDiv');
+
+function counter() {
+  const counterTimer = document.getElementById('counterTimer');
+  let counter = sessionStorage.getItem('counter') || 0;
+
+  counter++;
+
+  counterTimer.textContent = `Il tuo tempo trascorso in questa sessione: ${counter}s `;
+
+  sessionStorage.setItem('counter', counter);
+}
+
+setInterval(counter, 1000);
