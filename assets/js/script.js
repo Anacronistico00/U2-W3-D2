@@ -2,7 +2,7 @@
 const personName = document.getElementById('personName');
 const addDataBtn = document.getElementById('addData');
 const removeDataBtn = document.getElementById('removeData');
-const h4 = document.getElementById('addName');
+const h2 = document.getElementById('addName');
 
 addDataBtn.addEventListener('click', function (e) {
   e.preventDefault();
@@ -33,9 +33,9 @@ printOnScreen();
 function printOnScreen() {
   let localName = localStorage.getItem('personName');
   if (localName === null) {
-    h4.innerText = 'No Data';
+    h2.innerText = 'No Data';
   } else {
-    h4.innerText = `Ciao! ${localName}`;
+    h2.innerText = `Ciao! ${localName}`;
   }
 }
 
