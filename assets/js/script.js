@@ -52,6 +52,14 @@ function counter() {
   sessionStorage.setItem('counter', counter);
 }
 
+const resetBtn = document.getElementById('resetSession');
+
+resetBtn.addEventListener('click', function (e) {
+  e.preventDefault();
+  sessionStorage.clear();
+  alert('Session Timer Restarted');
+});
+
 setInterval(counter, 1000);
 
 counter();
